@@ -1,4 +1,4 @@
-# Configurations – Réseau d'entreprise – Mini projet final
+# Configurations – Réseau d'entreprise multi-départements
 
 Configuration complète de chaque équipement, exportée depuis le fichier Packet Tracer.
 Les mots de passe et numéros de série sont masqués ; les interfaces sans configuration sont omises.

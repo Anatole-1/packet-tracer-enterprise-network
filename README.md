@@ -1,6 +1,6 @@
-# Réseau d'entreprise multi-départements – Mini projet final
+# Réseau d'entreprise multi-départements – Cisco Packet Tracer
 
-Mini projet final réalisé à l'ESAIP (IR2) : conception d'un réseau d'entreprise complet sous Cisco Packet Tracer, avec cœur de réseau redondant, double accès opérateur, segmentation par département, services centralisés et sécurisation des équipements.
+Conception d'un réseau d'entreprise complet sous Cisco Packet Tracer, avec cœur de réseau redondant, double accès opérateur, segmentation par département, services centralisés et sécurisation des équipements.
 
 ![Packet Tracer](https://img.shields.io/badge/Cisco-Packet%20Tracer%209.0-1BA0D7?logo=cisco&logoColor=white)
 ![OSPF](https://img.shields.io/badge/Routage-OSPF-informational)
@@ -100,7 +100,3 @@ Ouvrir [`mini-projet-final.pkt`](mini-projet-final.pkt) avec **Cisco Packet Trac
 | [`CONFIGURATIONS.md`](CONFIGURATIONS.md) | Configuration de chaque équipement et adressage des postes, en un seul fichier |
 | [`configs/`](configs/) | Une configuration brute par équipement (`.txt`) |
 | [`images/`](images/) | Captures de la topologie |
-
-## Auteur
-
-**Anatole BERNARD** – étudiant ingénieur à l'ESAIP
