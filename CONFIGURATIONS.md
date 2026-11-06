@@ -25,33 +25,33 @@ Les fichiers bruts (un par équipement) sont dans [`configs/`](configs/).
 | Nom | Type | Adresse IP | Masque | Passerelle | DNS |
 |---|---|---|---|---|---|
 | Admin-AP | AccessPoint | – | – | – | – |
-| Admin-Laptop | Laptop | DHCP | – | – | – |
-| Admin-PC | Pc | DHCP | – | – | – |
-| Admin-Printer | Printer | DHCP | – | – | – |
-| Admin-Tablet | TabletPC | DHCP | – | – | – |
+| Admin-Laptop | Laptop | DHCP | – | 172.16.2.129 | 172.16.3.131 |
+| Admin-PC | Pc | – | – | – | – |
+| Admin-Printer | Printer | – | – | – | – |
+| Admin-Tablet | TabletPC | DHCP | – | 172.16.2.129 | 172.16.3.131 |
 | DHCP-SERVER | Server | 172.16.3.130 | 255.255.255.240 | 172.16.3.129 | 172.16.3.131 |
 | DNS-SERVER | Server | 172.16.3.131 | 255.255.255.240 | 172.16.3.129 | – |
-| EMAIL-SERVER | Server | – | – | – | – |
+| EMAIL-SERVER | Server | 172.16.3.133 | 255.255.255.240 | 172.16.3.129 | – |
 | Finance-AP | AccessPoint | – | – | – | – |
-| Finance-Laptop | Laptop | DHCP | – | – | – |
-| Finance-PC | Pc | DHCP | – | – | – |
-| Finance-Printer | Printer | DHCP | – | – | – |
-| Finance-Tablet | TabletPC | DHCP | – | – | – |
+| Finance-Laptop | Laptop | DHCP | – | 172.16.2.1 | 172.16.3.131 |
+| Finance-PC | Pc | – | – | – | – |
+| Finance-Printer | Printer | – | – | – | – |
+| Finance-Tablet | TabletPC | DHCP | – | 172.16.2.1 | 172.16.3.131 |
 | HR-AP | AccessPoint | – | – | – | – |
-| HR-Laptop | Laptop | DHCP | – | – | – |
-| HR-PC | Pc | DHCP | – | – | – |
-| HR-Printer | Printer | DHCP | – | – | – |
-| HR-Tablet | TabletPC | DHCP | – | – | – |
+| HR-Laptop | Laptop | DHCP | – | 172.16.1.129 | 172.16.3.131 |
+| HR-PC | Pc | – | – | – | – |
+| HR-Printer | Printer | – | – | – | – |
+| HR-Tablet | TabletPC | DHCP | – | 172.16.1.129 | 172.16.3.131 |
 | ICT-AP | AccessPoint | – | – | – | – |
-| ICT-Laptop | Laptop | DHCP | – | – | – |
-| ICT-PC | Pc | DHCP | – | – | – |
-| ICT-Printer | Printer | DHCP | – | – | – |
-| ICT-Tablet | TabletPC | DHCP | – | – | – |
+| ICT-Laptop | Laptop | DHCP | – | 172.16.3.1 | 172.16.3.131 |
+| ICT-PC | Pc | – | – | – | – |
+| ICT-Printer | Printer | – | – | – | – |
+| ICT-Tablet | TabletPC | DHCP | – | 172.16.3.1 | 172.16.3.131 |
 | Sales-AP | AccessPoint | – | – | – | – |
-| Sales-Laptop | Laptop | DHCP | – | – | – |
-| Sales-PC | Pc | DHCP | – | – | – |
-| Sales-Printer | Printer | DHCP | – | – | – |
-| Sales-Tablet | TabletPC | DHCP | – | – | – |
+| Sales-Laptop | Laptop | DHCP | – | 172.16.1.1 | 172.16.3.131 |
+| Sales-PC | Pc | – | – | – | – |
+| Sales-Printer | Printer | – | – | – | – |
+| Sales-Tablet | TabletPC | DHCP | – | 172.16.1.1 | 172.16.3.131 |
 | SysAdmin-PC | Pc | 172.16.3.132 | 255.255.255.240 | 172.16.3.129 | 172.16.3.131 |
 
 *DHCP* : adresse attribuée dynamiquement par le serveur DHCP.
@@ -367,7 +367,7 @@ interface Vlan1
  no ip address
 !
 router ospf 10
- router-id 5.5.5.5
+ router-id 6.6.6.6
  log-adjacency-changes
  network 195.136.17.4 0.0.0.3 area 0
  network 195.136.17.12 0.0.0.3 area 0
@@ -399,6 +399,7 @@ service password-encryption
 !
 hostname Mlt-SW1
 !
+no profinet
 enable password 7 <redacted>
 !
 no ip cef
@@ -526,6 +527,7 @@ service password-encryption
 !
 hostname Mlt-SW2
 !
+no profinet
 enable password 7 <redacted>
 !
 no ip cef

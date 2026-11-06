@@ -31,6 +31,8 @@ license udi pid CISCO2811/K9 sn <redacted>
 !
 !
 !
+!
+!
 spanning-tree mode pvst
 !
 !
@@ -58,7 +60,7 @@ interface Vlan1
  no ip address
 !
 router ospf 10
- router-id 5.5.5.5
+ router-id 6.6.6.6
  log-adjacency-changes
  network 195.136.17.4 0.0.0.3 area 0
  network 195.136.17.12 0.0.0.3 area 0

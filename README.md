@@ -50,7 +50,7 @@ Architecture en trois niveaux :
 | 40 | Admin | 172.16.2.128 /25 | 172.16.2.129 |
 | 50 | ICT | 172.16.3.0 /25 | 172.16.3.1 |
 | 60 | ServerRoom | 172.16.3.128 /28 | 172.16.3.129 |
-| 99 | BlackHole | – | ports inutilisés |
+| 99 | BlackHole | – | ports Gigabit inutilisés des switchs d'accès |
 
 | Liens | Réseaux |
 |---|---|
@@ -62,23 +62,24 @@ Architecture en trois niveaux :
 | DHCP | 172.16.3.130 |
 | DNS (`www.gtech.com`) | 172.16.3.131 |
 | PC SysAdmin | 172.16.3.132 |
+| Mail | 172.16.3.133 |
 
 ## Fonctionnalités configurées
 
 **Routage et redondance**
-- OSPF (processus 10, aire 0) sur l'ensemble des routeurs et switchs multicouches, router-ID fixés.
+- OSPF (processus 10, aire 0) sur l'ensemble des routeurs et switchs multicouches, avec un router-ID fixe et unique par équipement.
 - Routes par défaut principales et **routes flottantes** de secours (distance administrative 70) vers le second FAI / le second routeur.
 - **NAT/PAT** (`overload`) sur les routeurs de bordure pour l'ensemble des sous-réseaux internes (ACL standard 1).
 
 **Services**
 - Serveur **DHCP** centralisé : un pool par département, relayé via `ip helper-address` sur chaque SVI.
-- Serveur **DNS** (enregistrement A `www.gtech.com`), serveur mail, services HTTP/FTP.
+- Serveur **DNS** (enregistrement A `www.gtech.com`), serveur **mail** (SMTP/POP3), services HTTP/FTP.
 - Un point d'accès Wi-Fi par département avec SSID dédié.
 
 **Sécurité**
-- Accès d'administration en **SSH v2** uniquement (`transport input ssh`, `login local`), domaine `cisco.net`.
-- `service password-encryption`, mots de passe console, bannière MOTD.
-- Ports inutilisés placés dans un VLAN **BlackHole** (99) et désactivés.
+- Routeurs de cœur et switchs multicouches administrables en **SSH v2** uniquement (`transport input ssh`, `login local`), domaine `cisco.net`.
+- `service password-encryption`, mot de passe console et bannière MOTD sur les équipements de l'entreprise.
+- Ports Gigabit inutilisés des switchs d'accès placés dans un VLAN **BlackHole** (99) et désactivés.
 - **Port-security** avec apprentissage *sticky* des adresses MAC sur le switch Finance.
 
 Toutes les configurations sont regroupées dans [`CONFIGURATIONS.md`](CONFIGURATIONS.md).
@@ -89,7 +90,7 @@ Conception hiérarchique · VLSM · VLAN et trunks · routage inter-VLAN sur swi
 
 ## Utilisation
 
-Ouvrir [`mini-projet-final.pkt`](mini-projet-final.pkt) avec **Cisco Packet Tracer 9.0** ou plus récent (fichier enregistré sous la version 9.0). Testé sous Packet Tracer 9.0 : les postes obtiennent leur adresse en DHCP et joignent le serveur DNS (`ping www.gtech.com`) ainsi que les FAI. Commandes de vérification utiles : `show ip ospf neighbor`, `show ip route`, `show ip nat translations`, `show port-security`, `ipconfig /renew` sur les postes.
+Ouvrir [`mini-projet-final.pkt`](mini-projet-final.pkt) avec **Cisco Packet Tracer 9.0** ou plus récent (fichier enregistré sous la version 9.0). Testé sous Packet Tracer 9.0 : les postes obtiennent leur adresse en DHCP et joignent le serveur DNS (`ping www.gtech.com`), le serveur mail et les deux FAI. Commandes de vérification utiles : `show ip ospf neighbor`, `show ip route`, `show ip nat translations`, `show port-security`, `ipconfig /renew` sur les postes.
 
 ## Contenu du dossier
 

@@ -7,6 +7,7 @@ service password-encryption
 hostname Mlt-SW1
 !
 !
+no profinet
 enable password 7 <redacted>
 !
 !

@@ -31,6 +31,8 @@ license udi pid CISCO2811/K9 sn <redacted>
 !
 !
 !
+!
+!
 spanning-tree mode pvst
 !
 !
